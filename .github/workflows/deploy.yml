@@ -34,13 +34,13 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Build
-        run: dotnet build --configuration Release
+        run: dotnet build SimpleNetApp/SimpleNetApp.csproj --configuration Release
 
       - name: Test
-        run: dotnet test --configuration Release --no-build
+        run: dotnet test SimpleNetApp/SimpleNetApp.csproj --configuration Release --no-build
 
       - name: Publish
-        run: dotnet publish --configuration Release --no-build --output ./publish
+        run: dotnet publish SimpleNetApp/SimpleNetApp.csproj --configuration Release --no-build --output ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
