@@ -15,6 +15,9 @@ resource "azurerm_linux_web_app" "web_app" {
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = azurerm_service_plan.app_service_plan.location
   service_plan_id     = azurerm_service_plan.app_service_plan.id
+  
+  webdeploy_publish_basic_authentication_enabled = true
+  ftp_publish_basic_authentication_enabled       = true
 
   site_config {
     application_stack {
